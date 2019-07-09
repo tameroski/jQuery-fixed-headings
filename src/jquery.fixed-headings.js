@@ -32,6 +32,7 @@
 		cloneCssClass: 'fixed-heading-clone',
 		cloneIdPrefix: 'fixed-heading-',
 		stopAtNext: true,
+		offset: 0,
 		
 		debug: true // ONLY VALID IN DEFAULTS
 	},
@@ -66,7 +67,7 @@
 			off = e.offset(),
 			id = '#' + o.cloneIdPrefix + index,
 			clone = $(id),
-			isOffset = s >= off.top + e.height(),
+			isOffset = s >= off.top + e.height() - o.offset,
 			isTooFar = !o.stopAtNext ? false : _isOverlappingNextElement(e, s, off, index);
 		
 		if (isOffset && !isTooFar) {
